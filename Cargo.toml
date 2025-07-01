@@ -1,0 +1,21 @@
+[package]
+name = "DB_Search"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+
+
+[dependencies]
+walkdir = "2.5"
+regex = "1.10"
+memmap2 = "0.9"
+rayon = "1.10"
+anyhow = "1.0"
+eframe = "0.27"
+egui = "0.27"
+rfd = "0.13" 
+
+
+[profile.dev]
+opt-level = 0
+debug = true
