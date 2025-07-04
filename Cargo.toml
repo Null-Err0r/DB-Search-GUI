@@ -13,7 +13,11 @@ rayon = "1.10"
 anyhow = "1.0"
 eframe = "0.27"
 egui = "0.27"
-rfd = "0.13" 
+rfd = "0.12"
+pangocairo = "0.20.10"
+slint = "1.5"
+unicode-bidi = "0.3"
+arabic_reshaper = "0.4"
 
 
 [profile.dev]
