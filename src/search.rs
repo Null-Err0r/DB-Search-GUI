@@ -12,8 +12,42 @@ const VALID_EXTENSIONS: &[&str] = &[
     "txt", "log", "md", "csv", "json", "xml", "html", "htm", "eml", "rtf", "odt", "ods", "docx", "xlsx", "java", "kt", "epub"
 ];
 
+
+fn normalize_farsi(input: &str) -> String {
+    input
+        .replace('ي', "ی")
+        .replace('ى', "ی")
+        .replace('ئ', "ی")
+        .replace('ك', "ک")
+        .replace('ک', "ک")
+        .replace('۰', "0")
+        .replace('۱', "1")
+        .replace('۲', "2")
+        .replace('۳', "3")
+        .replace('۴', "4")
+        .replace('۵', "5")
+        .replace('۶', "6")
+        .replace('۷', "7")
+        .replace('۸', "8")
+        .replace('۹', "9")
+        .replace('٠', "0")
+        .replace('١', "1")
+        .replace('٢', "2")
+        .replace('٣', "3")
+        .replace('٤', "4")
+        .replace('٥', "5")
+        .replace('٦', "6")
+        .replace('٧', "7")
+        .replace('٨', "8")
+        .replace('٩', "9")
+}
+
+
 pub fn search_folder(folder_path: &Path, pattern: &str, output: Option<&Path>) -> anyhow::Result<usize> {
-    let regex = Regex::new(pattern)?;
+
+    let normalized_pattern = normalize_farsi(pattern);
+    let regex = Regex::new(&normalized_pattern)?;
+
     let files: Vec<PathBuf> = WalkDir::new(folder_path)
         .into_iter()
         .filter_map(Result::ok)
@@ -39,8 +73,10 @@ pub fn search_folder(folder_path: &Path, pattern: &str, output: Option<&Path>) -
                 let mut matches = vec![];
 
                 for line in content.lines() {
-                    if regex.is_match(line) {
-                        matches.push(line.to_string());
+                    let normalized_line = normalize_farsi(line);
+
+                    if regex.is_match(&normalized_line) {
+                        matches.push(line.to_string()); 
                     }
                 }
 
@@ -62,4 +98,3 @@ pub fn search_folder(folder_path: &Path, pattern: &str, output: Option<&Path>) -
 
     Ok(*total_matches.lock().unwrap())
 }
-
