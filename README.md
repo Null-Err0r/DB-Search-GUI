@@ -55,5 +55,5 @@ This project is licensed under the [MIT License](LICENSE).
 
 <div align="center">
   <br> </br>
-  <img src="https://ghvc.kabelkultur.se/?username=null-err0r&repository=DB-Search-GUI&label=DB-Search-GUI%20Views⁮⁮" alt="Visitor Counter" />
+  <img src="https://ghvc.kabelkultur.se/?username=null-err0r&repository=DB-Search-GUI&label=DB-Search-GUI%20Views⁮⁮"/>
 </div>
