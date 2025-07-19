@@ -51,9 +51,3 @@ cargo run --release
 
 This project is licensed under the [MIT License](LICENSE).  
 این پروژه تحت لایسنس MIT منتشر شده است.
-
-
-<div align="center">
-  <br> </br>
-  <img src="https://ghvc.kabelkultur.se/?username=null-err0r&repository=DB-Search-GUI&label=DB-Search-GUI%20Views⁮⁮"/>
-</div>
